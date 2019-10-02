@@ -1,0 +1,7 @@
+Controlling a BLDC motor is very easy using Arduino. All the components you will need are any Arduino board. In my case i am gonna use an Arduino UNO, a potentiometer to control the speeed of the motor and the BLDC motor itself. Note that BLDC motor comes with a ESC board. This board controls the speed of the BLDC motor using PWM signals. Thus the name Electronic Speed Controller.
+
+ESC contains a power jack which should be fed with 12V DC power supply. And it has signal pins. This signal pins will mostly have a red color wire which represents Vcc, a black color wire which represents the ground connection. The other pin is the signal pin which is to be connected with the digital output pin of the arduino.
+
+The potentiometer`s job is simple. It acts as a variable resistor which limits the voltage depending upon the position of the knob. The connection diagram is shown here. The left most pin is the input pin. the input pin is the pin where the actual voltage or complete voltage should be connected to. The middle pin is the output pin. this pin gives the limited voltage by rotating the knob. The last pin is the ground pin  should be connected to the ground of the circuit.
+
+In our case we are going to use the readings from the potentiometer as a reference and control the output PWM signal. This can be understood easily from the Arduino program.
