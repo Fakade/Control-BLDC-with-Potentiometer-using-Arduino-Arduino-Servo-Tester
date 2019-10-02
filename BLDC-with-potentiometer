@@ -1,0 +1,18 @@
+#include <Servo.h>
+
+Servo ESC;
+
+int ESC_Pin = 8;  // Make sure this pin has PWM so that the pulse can be modulated. We are using D8.
+
+void setup()
+{
+ESC.attach(ESC_Pin); 
+ESC.writeMicroseconds(1000);  // Initialising the ESC 
+Serial.begin(9600);  // Serial is enabled to see the Analog Read Values
+}
+void loop()
+{
+int ANALOG_VAL = analogRead(A0);  // Stores the Analog values from the potentiometer in ANALOG_VAL
+ANALOG_VAL = map(ANALOG_VAL, 0, 1023,1000,2000);  // Maps the ANALOG_VAL to minimum and maximum that can be produced 
+ESC.writeMicroseconds(ANALOG_VAL);  // ANALOG_VAL is written to ESC
+}
